@@ -7,8 +7,10 @@ const Contador = () => {
     }
     return ( 
         <Fragment>
+            
         <h2>Mi primer componente {numero}</h2>
         <button onClick={aumentar}>automentar</button>
+       
         </Fragment>
         
      );
