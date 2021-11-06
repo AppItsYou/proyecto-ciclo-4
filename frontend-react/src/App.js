@@ -1,5 +1,6 @@
 import React from 'react';
 import Contador from './components/Contador';
+import Portada  from './components/Portada';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,30 +9,55 @@ import {
  // NavLink
 } from "react-router-dom";
 
+import { Nosotros } from './components/Nosotros';
+import { Portafolios } from './components/Portafolios';
+import {Contacto } from './components/Contacto';
+
 function App() {
   return (
     <Router>
     <div className="container mt-5">
-      <div className="btn-group">
-        <Link to="/contador" className="btn btn-dark">Inicio</Link>
-       {/*  <Link to="/bla" className="btn btn-dark">Bla bla bla</Link>
-        <NavLink to="/users" className="btn btn-dark" activeClassName="active">Users</NavLink>
-       */}
-       </div>
+      
+       <nav className="nav-menu d-none d-lg-block">
+        
+        <ul>
+          
+          <li><Link to="/portada">Portada</Link></li>
+          <li><Link to="/portafolios">Portafolios</Link></li>
+          <li><Link to="/nosotros">Nosotros</Link></li>
+          <li><Link to="/sesion">Iniciar Sesión</Link></li>
+          <li><Link to="/registro-usuario"> Registrar Cuenta</Link></li>
+          <li><Link to="/contacto">Contacto</Link></li>
+          
+        </ul>
+      </nav>
+      
+      
       <hr />
       <Switch>
-        <Route path="/contador" exact>
+      <Route path="/" exact>
+          <Portada />
+        </Route>
+        <Route path="/portada" exact>
+          <Portada />
+        </Route>
+        <Route path="/portafolios" exact>
+          <Portafolios />
+        </Route>
+        <Route path="/nosotros" exact>
+          <Nosotros />
+        </Route>
+        <Route path="/sesion" exact>
           <Contador />
         </Route>
-       {/*  <Route path="/bla">
-          <Bla />
+
+        <Route path="/registro-usuario" exact>
+          <Contador />
         </Route>
-        <Route path="/users/:id" exact>
-          <User />
+        <Route path="/contacto" exact>
+          <Contacto/>
         </Route>
-        <Route path="/users">
-          <Parametros />
-        </Route> */}
+      
       </Switch>
     </div>
   </Router>
