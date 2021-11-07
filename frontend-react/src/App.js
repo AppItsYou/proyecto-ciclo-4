@@ -1,6 +1,8 @@
 import React from 'react';
-import Contador from './components/Contador';
 import Portada  from './components/Portada';
+import Dsesion from './components/Dsesion';
+import Ecuenta from './components/Ecuenta';
+import Fcontacto from './components/Fcontacto';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,25 +13,32 @@ import {
 
 import { Nosotros } from './components/Nosotros';
 import { Portafolios } from './components/Portafolios';
-import {Contacto } from './components/Contacto';
+
+
 
 function App() {
   return (
     <Router>
     <div className="container mt-5">
       
-       <nav className="nav-menu d-none d-lg-block">
-        
-        <ul>
-          
-          <li><Link to="/portada">Portada</Link></li>
-          <li><Link to="/portafolios">Portafolios</Link></li>
-          <li><Link to="/nosotros">Nosotros</Link></li>
-          <li><Link to="/sesion">Iniciar Sesión</Link></li>
-          <li><Link to="/registro-usuario"> Registrar Cuenta</Link></li>
-          <li><Link to="/contacto">Contacto</Link></li>
-          
-        </ul>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <div className="container-fluid">
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
+              </button>
+              <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+                  {/* <Link className="navbar-brand" to="/portada"><img src="%PUBLIC_URL%/favicon.ico" alt="" width="30" height="24" className="d-inline-block align-text-top"/>it's You</Link>
+                  <Link className="navbar-brand" to="/portada"><img src="../public/assets/img/testimonials/LogoItsYou.jpeg" alt="" width="30" height="24" className="d-inline-block align-text-top"/></Link> */}
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/portada">Portada</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/portafolios">Portafolios</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/nosotros">Nosotros</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/sesion">Iniciar Sesión</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/registro-usuario"> Registrar Cuenta</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/contacto">Contacto</Link></li>
+                  </ul>
+              </div>
+          </div>
       </nav>
       
       
@@ -48,18 +57,19 @@ function App() {
           <Nosotros />
         </Route>
         <Route path="/sesion" exact>
-          <Contador />
+          <Dsesion />
         </Route>
 
         <Route path="/registro-usuario" exact>
-          <Contador />
+          <Ecuenta />
         </Route>
         <Route path="/contacto" exact>
-          <Contacto/>
+          <Fcontacto/>
         </Route>
       
       </Switch>
     </div>
+    <h1></h1>
   </Router>
   );
 }

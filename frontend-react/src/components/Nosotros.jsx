@@ -3,9 +3,9 @@ import React,{Fragment} from 'react';
 export const Nosotros = () => {
     return (
       <Fragment>
-<div className="container">
+<div className="container" style={{width: "500px"}}>
 
-<div className="section-title">
+<div className="section-title" >
   <h2>Nosotros</h2>
   <p>Lo que nos representa</p>
 </div>
@@ -22,7 +22,7 @@ export const Nosotros = () => {
       </blockquote>
     </div>
   </div>
-  <div className="card text-white bg-secondary mb-3">
+  <div className="card text-dark bg-light mb-3">
     <div className="card-header">
       <h3> <b>Misión</b> </h3>
     </div>
@@ -34,7 +34,7 @@ export const Nosotros = () => {
     </div>
   </div>
 
-  <div className="card text-white bg-dark mb-3">
+  <div className="card text-dark bg-light mb-3">
       <div className="card-header">
         <h3> <b>Lema</b> </h3>
       </div>

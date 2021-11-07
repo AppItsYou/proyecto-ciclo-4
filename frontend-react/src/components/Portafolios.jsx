@@ -3,7 +3,12 @@ import React,{Fragment} from 'react';
 export const Portafolios = () => {
     return (
     <Fragment>
-        <div className="testimonials container">
+        
+        <div className="testimonials container" style={{width: "500px"}}>
+        <div className="section-title">
+                    <h2>Portafolios</h2>
+                    <p>Usuarios y servicos</p>
+                </div>
 
         <div className="section-title">
         <h2>Perfiles publicados</h2>
