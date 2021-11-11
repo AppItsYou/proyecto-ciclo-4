@@ -3,6 +3,7 @@ import Portada  from './components/Portada';
 import Dsesion from './components/Dsesion';
 import Ecuenta from './components/Ecuenta';
 import Fcontacto from './components/Fcontacto';
+import Pestandar from  './components/Pestandar';
 import {
   BrowserRouter as Router,
   Switch,
@@ -36,6 +37,7 @@ function App() {
                       <li className="nav-item"><Link className="nav-link" to="/sesion">Iniciar Sesión</Link></li>
                       <li className="nav-item"><Link className="nav-link" to="/registro-usuario"> Registrar Cuenta</Link></li>
                       <li className="nav-item"><Link className="nav-link" to="/contacto">Contacto</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/estandar">Portafolio Estandar</Link></li>
                   </ul>
               </div>
           </div>
@@ -66,10 +68,14 @@ function App() {
         <Route path="/contacto" exact>
           <Fcontacto/>
         </Route>
+
+        <Route path="/estandar" exact>
+          <Pestandar/>
+        </Route>
       
       </Switch>
     </div>
-    <h1></h1>
+    
   </Router>
   );
 }
