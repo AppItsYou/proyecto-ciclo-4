@@ -5,15 +5,17 @@ export const Portafolios = () => {
     <Fragment>
         
         <div className="testimonials container" style={{width: "500px"}}>
-        <div className="section-title">
-                    <h2>Portafolios</h2>
-                    <p>Usuarios y servicos</p>
-                </div>
-
+        {/* <div className="section-title">
+                    <h4>Portafolios</h4>
+                    <h3>Usuarios y servicos</h3>
+                </div> */}
+                <br/>
+                <br/>
         <div className="section-title">
         <h2>Perfiles publicados</h2>
         </div>
 
+        
         <div className="owl-carousel testimonials-carousel">
 
         <div className="testimonial-item">
@@ -26,6 +28,7 @@ export const Portafolios = () => {
             <h3>Saul Goodman</h3>
             <h4>Arquitecto &amp; Programador</h4>
         </div>
+        <br/>
 
         <div className="testimonial-item">
             <p>
@@ -37,6 +40,7 @@ export const Portafolios = () => {
             <h3>Sara Wilsson</h3>
             <h4>Diseñadora Gráfica</h4>
         </div>
+        <br/>
 
         <div className="testimonial-item">
             <p>
@@ -48,6 +52,7 @@ export const Portafolios = () => {
             <h3>Jena Karlis</h3>
             <h4>Ingeniera de Sistemas</h4>
         </div>
+        <br/>
 
         <div className="testimonial-item">
             <p>
@@ -59,6 +64,7 @@ export const Portafolios = () => {
             <h3>Matt Brandon</h3>
             <h4>Freelancer</h4>
         </div>
+        <br/>
 
         <div className="testimonial-item">
             <p>

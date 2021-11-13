@@ -23,8 +23,16 @@ const Dsesion = () => {
                             
                         </div>
                         <br/>
-                        <a href="./cliente.html" className="btn btn-dark"> Enviar</a>
-                        <br/>
+                        <div class="btn-toolbar">
+                            <div class="btn-group me-2">
+                            <a href="./cliente.html" className="btn btn-dark"> Eviar</a>
+                            <br/>
+
+                            </div>
+                        
+                            <a href="./cliente.html" className="btn btn-dark"> Volver</a>
+
+                        </div>
                         <br/>
                         
                     </form>

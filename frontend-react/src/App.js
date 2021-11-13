@@ -4,6 +4,11 @@ import Dsesion from './components/Dsesion';
 import Ecuenta from './components/Ecuenta';
 import Fcontacto from './components/Fcontacto';
 import Pestandar from  './components/Pestandar';
+import Xcambiar from './components/Xcambiar';
+import Xrecuperar from './components/Xrecuperar';
+import Ucliente from './components/Ucliente';
+import Uadmin from './components/Uadmin';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,6 +35,7 @@ function App() {
               <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                   {/* <Link className="navbar-brand" to="/portada"><img src="%PUBLIC_URL%/favicon.ico" alt="" width="30" height="24" className="d-inline-block align-text-top"/>it's You</Link>
                   <Link className="navbar-brand" to="/portada"><img src="../public/assets/img/testimonials/LogoItsYou.jpeg" alt="" width="30" height="24" className="d-inline-block align-text-top"/></Link> */}
+                  
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                       <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/portada">Portada</Link></li>
                       <li className="nav-item"><Link className="nav-link" to="/portafolios">Portafolios</Link></li>
@@ -38,6 +44,11 @@ function App() {
                       <li className="nav-item"><Link className="nav-link" to="/registro-usuario"> Registrar Cuenta</Link></li>
                       <li className="nav-item"><Link className="nav-link" to="/contacto">Contacto</Link></li>
                       <li className="nav-item"><Link className="nav-link" to="/estandar">Portafolio Estandar</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/cambiar">Cambiar contraseña</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/recuperar">Recuperar contraseaña</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/cliente">Cliente</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/administrador">Administrador</Link></li>
+                                
                   </ul>
               </div>
           </div>
@@ -71,6 +82,22 @@ function App() {
 
         <Route path="/estandar" exact>
           <Pestandar/>
+        </Route>
+
+        <Route path="/cambiar" exact>
+          <Xcambiar/>
+        </Route>
+
+        <Route path="/recuperar" exact>
+          <Xrecuperar/>
+        </Route>
+
+        <Route path="/cliente" exact>
+          <Ucliente/>
+        </Route>
+
+        <Route path="/administrador" exact>
+          <Uadmin/>
         </Route>
       
       </Switch>

@@ -26,6 +26,11 @@ export class Navbar extends Component {
                                 <li className="nav-item"><Link className="nav-link" to="/sesion">Iniciar Sesión</Link></li>
                                 <li className="nav-item"><Link className="nav-link" to="/registro-usuario"> Registrar Cuenta</Link></li>
                                 <li className="nav-item"><Link className="nav-link" to="/contacto">Contacto</Link></li>
+                                <li className="nav-item"><Link className="nav-link" to="/cambiar">Cambiar contraseña</Link></li>
+                                <li className="nav-item"><Link className="nav-link" to="/recuperar">Recuperar contraseaña</Link></li>
+                                <li className="nav-item"><Link className="nav-link" to="/cliente">Cliente</Link></li>
+                                <li className="nav-item"><Link className="nav-link" to="/administrador">Administrador</Link></li>
+                                <li className="nav-item"><Link className="nav-link" to="/formulario">Formulario</Link></li>
                             </ul>
                         </div>
                     </div>

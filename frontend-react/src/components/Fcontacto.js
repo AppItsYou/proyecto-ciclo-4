@@ -9,7 +9,7 @@ const Fcontacto = () => {
             <br/>
                 <div className="section-title">
                     <h2>Contacto</h2>
-                    <p>Canales de contacto</p>
+                    <h4>Canales de contacto</h4>
                 </div>
                 <div className="row mt-2">
                     <div className="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
@@ -53,8 +53,9 @@ const Fcontacto = () => {
                         <div className="sent-message">Your message has been sent. Thank you!</div>
                     </div>
                     
-                    <div className="text-center"><button type="submit" className="btn btn-dark">Enviar</button></div>
+                    
                 </form>
+                <div className="text-center"><button type="submit" className="btn btn-dark">Enviar</button></div>
             </div>
         </div>
     );

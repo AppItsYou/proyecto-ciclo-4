@@ -9,7 +9,7 @@ const Dsesion = () => {
             <br/>
                 <div className="section-title">
                     <h2>Iniciar sesión</h2>
-                    <p>Usuario Registrado</p>
+                    <h4>Usuario Registrado</h4>
                     <form action="forms/contact.php" method="post" role="form" className="php-email-form mt-4">
                         <div className="form-row">
                             <div className="form-group">
@@ -23,8 +23,17 @@ const Dsesion = () => {
                             </div>
                         </div>
                         <br/>
-                        <a href="./cliente.html" className="btn btn-dark"> Entrar</a>
-                        <br/>
+                        <div class="btn-toolbar">
+                            <div class="btn-group me-2">
+                            <a href="./cliente.html" className="btn btn-dark"> Entrar</a>
+                            <br/>
+
+                            </div>
+                        
+                            <a href="./cliente.html" className="btn btn-dark"> Recuperar contraseña</a>
+
+                        </div>
+                        
                         <br/>
                         
                     </form>

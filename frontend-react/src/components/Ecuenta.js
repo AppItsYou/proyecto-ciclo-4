@@ -9,11 +9,11 @@ const Ecuenta = () => {
             <br/>
                 <div className="section-title">
                     <h2>Crear Cuenta</h2>
-                    <p>Ingresa tus datos</p>
+                    <h4>Ingresa tus datos</h4>
                 </div>
                 <div className="row mt-2">
                     <form action="forms/contact.php" method="post" role="form" className="php-email-form mt-4">
-                        <br/>
+                        
                         <div className="form-group">
                                 <input type="text" name="name" className="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 <div className="validate"></div>
@@ -35,9 +35,9 @@ const Ecuenta = () => {
                     <br/>
                     <div className="datos">
                     <br/>
-                        <h3>
+                        <h4>
                         Política de tratamientod de datos
-                        </h3>
+                        </h4>
                         <br/>
                         <p>Al crear su cuenta, está aceptando nuestra política de 
                         </p>

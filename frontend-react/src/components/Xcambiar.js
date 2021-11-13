@@ -28,8 +28,16 @@ const Dsesion = () => {
                             </div>
                         </div>
                         <br/>
-                        <a href="./cliente.html" className="btn btn-dark"> Cambiar</a>
-                        <br/>
+                        <div class="btn-toolbar">
+                            <div class="btn-group me-2">
+                            <a href="./cliente.html" className="btn btn-dark"> Cambiar</a>
+                            <br/>
+
+                            </div>
+                        
+                            <a href="./cliente.html" className="btn btn-dark"> Volver</a>
+
+                        </div>
                         <br/>
                         
                     </form>

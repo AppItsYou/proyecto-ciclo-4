@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/css/estandar.css';
 
-const Logo =require('../assets/img/testimonials/testimonials-1.jpg')
+const User =require('../assets/img/user.png')
 
 const Pestandar = () => {
     return (
@@ -23,7 +23,7 @@ const Pestandar = () => {
 
                 <div className="row">
                     <div className="col-lg-4">
-                    {/* <img classNameName="card-img-top" src={Logo} alt="Card image cap"/> */}
+                    <img classNameName="card-img-top" src='../assets/img/testimonials/testimonials-4.jpg' alt="Card image cap"/>
                     </div>
                     <div className="col-lg-8 pt-4 pt-lg-0 content">
                     <h3>Profesión</h3>
@@ -74,7 +74,7 @@ const Pestandar = () => {
                 <div className="section-title">
                     <h2>Logros</h2>
                     <br/>
-                    <p>Resultados obtenidos en los trabajos realizados</p>
+                    <h4>Resultados obtenidos en los trabajos realizados</h4>
                 </div>
 
                 <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -125,9 +125,9 @@ const Pestandar = () => {
             <div id="skills" className="skills section-bg">
                 <div className="container" data-aos="fade-up">
                     <div className="section-title">
-                        <h2>Habilidades Blandas</h2>
+                        <h2>Habilidades</h2>
                         <br/>
-                        <p>Cualidades, deseables para ciertos trabajos e independientes del conocimiento adquirido</p>
+                        <h4>Habilidades Blandas, cualidades deseables para ciertos trabajos e independientes del conocimiento adquirido</h4>
                     </div>
                     <div>
                         <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -417,7 +417,7 @@ const Pestandar = () => {
                 <div className="container" data-aos="fade-up">
 
                 <div className="section-title">
-                    <h2>Estudios, idiomas, cursos y talleres</h2>
+                    <h2>Estudios</h2>
                     <p></p>
                 </div>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -570,7 +570,12 @@ const Pestandar = () => {
 
                     </div>
 
-                    
+                    <br/>
+                    <br/>
+
+                    <div className="text-center"><button type="submit" className="btn btn-dark">Guardar</button></div>
+                    <br/>
+                    <br/>
 
                 </div>
 

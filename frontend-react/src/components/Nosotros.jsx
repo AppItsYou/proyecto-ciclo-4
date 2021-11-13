@@ -6,8 +6,9 @@ export const Nosotros = () => {
 <div className="container" style={{width: "500px"}}>
 
 <div className="section-title" >
+<br/><br/>
   <h2>Nosotros</h2>
-  <p>Lo que nos representa</p>
+  <h4>Lo que nos representa</h4>
 </div>
 
 <div className="row">
