@@ -8,6 +8,7 @@ import Xcambiar from './components/Xcambiar';
 import Xrecuperar from './components/Xrecuperar';
 import Ucliente from './components/Ucliente';
 import Uadmin from './components/Uadmin';
+import Politicas from './components/Politicas';
 
 import {
   BrowserRouter as Router,
@@ -48,6 +49,7 @@ function App() {
                       <li className="nav-item"><Link className="nav-link" to="/recuperar">Recuperar contraseaña</Link></li>
                       <li className="nav-item"><Link className="nav-link" to="/cliente">Cliente</Link></li>
                       <li className="nav-item"><Link className="nav-link" to="/administrador">Administrador</Link></li>
+                      <li className="nav-item"><Link className="nav-link" to="/politicas">Politicas</Link></li>
                                 
                   </ul>
               </div>
@@ -98,6 +100,10 @@ function App() {
 
         <Route path="/administrador" exact>
           <Uadmin/>
+        </Route>
+
+        <Route path="/politicas" exact>
+          <Politicas/>
         </Route>
       
       </Switch>

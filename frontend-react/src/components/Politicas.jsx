@@ -1,11 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import '../assets/css/style.css';
 
-export const Politicas = () => {
-	return (
-		<Fragment>
+const Politicas = () => {
+    return (
+        <div>
 			<div className="container" style={{ width: "500px" }}>
 				<div className="section-title" >
-					<h2> </h2>
+				<br/>
+				<br/>
+					<h2>Politicas </h2>
 				</div>
 				<div className="row">
 					<div className="card text-dark bg-light mb-3">
@@ -83,6 +86,9 @@ export const Politicas = () => {
 				</div>
 			</div>
 
-		</Fragment>
-	);
+		</div>
+    );
 }
+
+export default Politicas;
+
