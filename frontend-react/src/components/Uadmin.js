@@ -34,23 +34,26 @@ const Uadmin = () => {
                 
             </div>
             
-            <div classNameName="table-responsive-md">
-                <table classNameName="table-secondary">
-                    <thead>
-                        <tr>
-                            <th colspan="3">Portafolios Creados</th>
-                        </tr>
-                        <tr>
-                            <th>#</th>
-                            <th colspan="2">Tipo de portafolio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Estandar</td>
-                            <td>
-                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            
+        </div>
+        <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Celular</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr >
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="align-top">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group me-2" role="group" aria-label="First group">
                                 <button type="button" class="btn btn-dark">Ver</button>
                                 </div>
@@ -61,13 +64,10 @@ const Uadmin = () => {
                                 <button type="button" class="btn btn-dark">Autorizar</button>
                                 </div>
                             </div>
-                            
-                            </td>
-                        </tr>
-                    </tbody>
+                    </td>
+                    </tr>
+                </tbody>
                 </table>
-            </div>
-        </div>
             </p>
             
         </div>

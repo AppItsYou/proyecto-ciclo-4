@@ -3,9 +3,11 @@ const portafolioRoute = express.Router();
 const  tokenSecret =require("../services/token");
 const jwt = require("jwt-simple");
 const lodash = require("lodash");
+const upload = require('../utilidades/storage');
 
 // portafolio model
 let portafolioModel = require("../models/Portafolio");
+//const Portafolio = require("../models/Portafolio");
 
 //********* */ consulta todos los portafolios *******+
 portafolioRoute.route("/").get((req, res) => {
@@ -78,7 +80,37 @@ portafolioRoute.route("/create-portafolio").post((req, res, next) => {
     }
   });
 });
+//***Creacion de portafolios*/
+portafolioRoute.post('/crear-portafolio', upload.single('image'),async(req, res)=>{
+ try{
+  if(req.headers.authorization==null){
+    console.log('Error al crear  portafolios de usuarios');
+    return res.status(403).send({mensaje:"sin autorización"});
+      }
+      const token =req.headers.authorization.split(' ')[1];
+      const payload =jwt.decode(token, tokenSecret.clave);
+      let usuario={usuario_id:payload.sub};
+      let datos=lodash.assign(usuario, req.body);
+      console.log(`datos unificado:`+JSON.stringify(datos) );
 
+  if (req.file) {
+    const { filename } = req.file
+    console.log(`fichero imagen:${filename}`);
+    //portafolioModel.setImgUrl(filename)
+    datos=lodash.assign({imgUrl:filename}, datos);
+  }
+
+
+  const portafolioAlmacenado = await portafolioModel.create(datos);
+
+  res.status(200).send({ portafolioAlmacenado })
+} catch (e) {
+  console.log(`error: ${e.message}`);
+  res.status(500).send({ message: e.message })
+}
+
+})
+/************************************************/
 portafolioRoute.route("/edit-portafolio/:id").get((req, res) => {
   portafolioModel.findById(req.params.id, (error, data, next) => {
     if (error) {
@@ -108,7 +140,30 @@ portafolioRoute.route("/update-portafolio/:id").put((req, res, next) => {
     }
   );
 });
-
+//***actualización de portafolios*/
+portafolioRoute.put('/actualizar-portafolio/:id', upload.single('image'),async(req, res)=>{
+  try{
+    let datos=req.body;
+    //console.log(`datos:${JSON.stringify(datos)}`);
+   if (req.file) {
+    const { filename } = req.file
+     datos=lodash.assign({imgUrl:filename}, datos);
+    
+   }
+   const portafolioAlmacenado =await portafolioModel.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: datos,
+    });
+ 
+    res.status(200).send({message:"actualizacion efectuada"})
+ } catch (e) {
+   console.log(`error: ${e.message}`);
+   res.status(500).send({ message: e.message })
+ }
+ 
+ })
+ /************************************************/
 
 // Delete portafolio
 portafolioRoute.route("/delete-portafolio/:id").delete((req, res, next) => {

@@ -35,7 +35,7 @@ app.use(cors());
 // API
 app.use("/api", portafolioAPI);
 app.use("/usuario-servicios", usuarioAPI)
-
+app.use('/public', express.static(`${__dirname}/storage/imgs`));
 // Create port
 const port = process.env.PORT || 3000;
 

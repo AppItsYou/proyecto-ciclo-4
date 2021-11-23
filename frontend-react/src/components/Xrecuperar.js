@@ -1,8 +1,54 @@
-import React from 'react';
+import React, { Component } from "react";
+import axios from 'axios';
+import ruta from '../rutaAPI';
 import '../assets/css/style.css';
+import {
 
-const Dsesion = () => {
-    return (
+    Route,
+    Link,
+   // NavLink
+  } from "react-router-dom";
+
+  export default class Xrecuperar extends Component {
+    
+    constructor(props) {
+      super(props)
+      
+      // funciones para  cambio de valores 
+      this.cambiarEmail = this.cambiarEmail.bind(this);
+      this.onSubmit = this.onSubmit.bind(this);
+  
+      // estado de variables
+      this.state = {
+        email: '',
+          }
+      this.resultado="";
+      this.salida="";
+    }
+  
+    cambiarEmail(e) {
+      this.setState({ email: e.target.value })
+    }
+
+    onSubmit(e) {
+        e.preventDefault()
+        let apiURL = `${ruta.ruta_api}/usuario-servicios/recuperar-clave`;
+       // alert(apiURL);
+         
+      axios
+        .post(apiURL, this.state) 
+        .then((res) => {
+         
+         this.salida= res.data.mensaje;
+         alert(this.salida);
+         this.esGuardado = true;
+       })
+        .catch((error) => {
+          console.log(error);
+        });
+      }
+    render(){
+        return (
         <div id="services" className="services">
             <div className="container" style={{width: "500px"}}>
             <br/>
@@ -10,13 +56,15 @@ const Dsesion = () => {
                 <div className="section-title">
                     <h2>Recuperar Password</h2>
                     
-                    <form action="forms/contact.php" method="post" role="form" className="php-email-form mt-4">
+                    <form onSubmit={this.onSubmit}   >
                         <div className="form-row">
                         <br/>
                             <div className="form-group">
                                 <h4>Email Registrado</h4>
                                 <br/>
-                                <input type="text" name="name" className="form-control" id="name" placeholder="Ingrese su email registrado en itsYou" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <input type="email" name="email" className="form-control" 
+                                 value={this.state.email} onChange={this.cambiarEmail}
+                                id="email" placeholder="Ingrese su email registrado en itsYou" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 <div className="validate"></div>
                             </div>
                             <br/>
@@ -25,13 +73,14 @@ const Dsesion = () => {
                         <br/>
                         <div class="btn-toolbar">
                             <div class="btn-group me-2">
-                            <a href="./cliente.html" className="btn btn-dark"> Eviar</a>
+                            <button class="btn btn-dark">Entrar</button>
+                           
                             <br/>
 
                             </div>
-                        
-                            <a href="./cliente.html" className="btn btn-dark"> Volver</a>
-
+                           
+                            <a href="/Portada" className="btn btn-dark"> Volver</a>
+ 
                         </div>
                         <br/>
                         
@@ -40,6 +89,6 @@ const Dsesion = () => {
             </div>
         </div>
     );
-}
-
-export default Dsesion;
+  }
+  }
+/* export default Dsesion; */

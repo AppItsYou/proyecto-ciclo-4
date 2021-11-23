@@ -1,24 +1,59 @@
-import React from 'react';
+import React,{Fragment, Component} from 'react';
 import '../assets/css/cliente.css';
+import axios from 'axios';
+import ruta from '../rutaAPI';
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-   // NavLink
-} from "react-router-dom";
+import FilaPortafolioCliente from './FilaPortafolioCliente';
 
-const Usuario =require('../assets/img/user.png')
+export default  class Ucliente extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          portafolios: []
+        };
+      }
+    actualizarDatosPortafolio(identificador){
+      const filtredData = this.state.portafolios.filter(item => item._id !== identificador);
+      this.setState({portafolios:filtredData});
+      this.render();
 
-const Ucliente = () => {
+    }
+      componentDidMount() {
+        let config = {
+            headers: {
+              authorization:`Bearer ${localStorage.token}` ,
+            }
+            }
+            let apiURL = `${ruta.ruta_api}/api/portafolio_idUsuario`;
+            axios
+      .get(apiURL,config)
+      .then((res) => {
+        this.setState({
+            portafolios: res.data
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      }
+
+      /******informacion del portafolio */
+      informacionPortafolios() {
+        
+        const salida =this.state.portafolios.map((portafolio, i) => {
+            return <FilaPortafolioCliente portafolio={portafolio} key={i} 
+          renderizarTabla={(id)=>{this.actualizarDatosPortafolio(id)}} />;
+        });
+       return salida;
+    }
     
+render(){
     return (
         <div class="d-flex justify-content-center">
             <p class="text-center">
             <div class="col-sm-9">
             <div class="card text-center">
-                <img classNameName="card-img-top" src='../assets/img/testimonials/testimonials-4.jpg' alt="Card image cap"/>
+                <img classNameName="card-img-top" src='../assets/img/user.png' alt="Card image cap"/>
                     <div classNameName="card-body">
                         <br/>
                         <h5 classNameName="card-title">Matt Brandon</h5>
@@ -40,48 +75,27 @@ const Ucliente = () => {
                 
             </div>
             
-            <div classNameName="table-responsive-md">
-                <table classNameName="table">
-                    <thead>
-                        <tr>
-                            <th colspan="3">Portafolios Creados</th>
-                        </tr>
-                        <tr>
-                            <th>#</th>
-                            <th colspan="2">Tipo de portafolio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Estandar</td>
-                            <td>
-                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                                <div class="btn-group me-2" role="group" aria-label="First group">
-                                <button type="button" class="btn btn-dark">Ver</button>
-                                </div>
-                                <div class="btn-group me-2" role="group" aria-label="First group">
-                                <button type="button" class="btn btn-dark">Editar</button>
-                                </div>
-                                <div class="btn-group me-2" role="group" aria-label="Second group">
-                                <button type="button" class="btn btn-dark">Borrar</button>
-                                </div>
-                                <div class="btn-group" role="group" aria-label="Third group">
-                                <button type="button" class="btn btn-dark">Publicar</button>
-                                </div>
-                            </div>
-                            
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            
         </div>
+        <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Celular</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.informacionPortafolios()}
+                </tbody>
+                </table>
             </p>
             
         </div>
         
     );
-}
-
-export default Ucliente;
+  }
+      }
+      

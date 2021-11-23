@@ -24,6 +24,8 @@ let portafolioSchema = new Schema(
     phone: {
       type: Number,
     },
+    imgUrl: String,
+
     estado:"String",
 
     usuario_id: String
@@ -32,5 +34,9 @@ let portafolioSchema = new Schema(
     collection: "portafolios",
   }
 );
-
+portafolioSchema.methods.setImgUrl = function setImgUrl (filename) {
+  const host='localhost';
+  const port=3000;
+  this.imgUrl = `${host}:${port}/public/${filename}`
+}
 module.exports = mongoose.model("Portafolio", portafolioSchema);

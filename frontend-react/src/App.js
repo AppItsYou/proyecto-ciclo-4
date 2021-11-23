@@ -9,6 +9,7 @@ import Xrecuperar from './components/Xrecuperar';
 import Ucliente from './components/Ucliente';
 import Uadmin from './components/Uadmin';
 import Politicas from './components/Politicas';
+import Portafolios from './components/Portafolios';
 
 import {
   BrowserRouter as Router,
@@ -19,7 +20,7 @@ import {
 } from "react-router-dom";
 
 import { Nosotros } from './components/Nosotros';
-import { Portafolios } from './components/Portafolios';
+//import { Portafolios } from './components/Portafolios';
 
 
 
