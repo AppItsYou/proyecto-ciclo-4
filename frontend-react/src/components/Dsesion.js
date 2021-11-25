@@ -68,7 +68,7 @@ import {
               this.props.history.push('/administrador');
              }
             
-                /* this.$router.push("/view"); */
+                
             this.salida="";
          } 
        })

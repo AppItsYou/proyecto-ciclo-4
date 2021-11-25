@@ -4,6 +4,16 @@ import axios from 'axios';
 import ruta from '../rutaAPI';
 
 import FilaPortafolioCliente from './FilaPortafolioCliente';
+import Pestandar from './PestandarV3';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+ // NavLink
+} from "react-router-dom";
+
 
 export default  class Ucliente extends Component {
     constructor(props) {
@@ -64,7 +74,9 @@ render(){
                         <br/>
                         <h5>Seleccione la plantilla del portafolio</h5>
                         <br/>
-                        <button type="button" class="btn btn-dark">Crear Portafolio</button>
+                        
+                        <Link className="btn btn-dark"  to="/crear-portafolio">Crear portafolio</Link>
+                        
                         <br/>
                         <br/>
                         <button type="button" class="btn btn-dark">Cambiar contraseña</button>
@@ -77,6 +89,8 @@ render(){
             
             
         </div>
+        
+        
         <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>

@@ -3,6 +3,7 @@ import Portada  from './components/Portada';
 import Dsesion from './components/Dsesion';
 import Ecuenta from './components/Ecuenta';
 import Fcontacto from './components/Fcontacto';
+import PestandarV3 from  './components/PestandarV3';
 import Pestandar from  './components/Pestandar';
 import Xcambiar from './components/Xcambiar';
 import Xrecuperar from './components/Xrecuperar';
@@ -75,7 +76,9 @@ function App() {
         <Route path="/sesion" exact>
           <Dsesion />
         </Route>
-
+        <Route path="/crear-portafolio" exact>
+          <PestandarV3 />
+        </Route>
         <Route path="/registro-usuario" exact>
           <Ecuenta />
         </Route>
