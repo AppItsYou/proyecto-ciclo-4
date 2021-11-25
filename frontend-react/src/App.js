@@ -1,23 +1,35 @@
 import React from 'react';
-import Portada  from './components/Portada';
+import Portada from './components/Portada';
 import Dsesion from './components/Dsesion';
 import Ecuenta from './components/Ecuenta';
 import Fcontacto from './components/Fcontacto';
+<<<<<<< HEAD
 import PestandarV3 from  './components/PestandarV3';
 import Pestandar from  './components/Pestandar';
+||||||| merged common ancestors
+import Pestandar from  './components/Pestandar';
+=======
+import PestandarV3 from './components/PestandarV3';
+>>>>>>> 4629513bc2ba6223e66d023e7a331dd53ab690cc
 import Xcambiar from './components/Xcambiar';
 import Xrecuperar from './components/Xrecuperar';
 import Ucliente from './components/Ucliente';
 import Uadmin from './components/Uadmin';
+import logo from './assets/img/Haz.png';
 import Politicas from './components/Politicas';
+<<<<<<< HEAD
 import Portafolios from './components/Portafolios';
+||||||| merged common ancestors
+=======
+import './assets/css/indexMau.css';
+>>>>>>> 4629513bc2ba6223e66d023e7a331dd53ab690cc
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
- // NavLink
+  // NavLink
 } from "react-router-dom";
 
 import { Nosotros } from './components/Nosotros';
@@ -28,39 +40,52 @@ import { Nosotros } from './components/Nosotros';
 function App() {
   return (
     <Router>
-    <div className="container mt-5">
-      
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div className="container-fluid">
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                  <span className="navbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                  {/* <Link className="navbar-brand" to="/portada"><img src="%PUBLIC_URL%/favicon.ico" alt="" width="30" height="24" className="d-inline-block align-text-top"/>it's You</Link>
-                  <Link className="navbar-brand" to="/portada"><img src="../public/assets/img/testimonials/LogoItsYou.jpeg" alt="" width="30" height="24" className="d-inline-block align-text-top"/></Link> */}
-                  
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/portada">Portada</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/portafolios">Portafolios</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/nosotros">Nosotros</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/sesion">Iniciar Sesión</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/registro-usuario"> Registrar Cuenta</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/contacto">Contacto</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/estandar">Portafolio Estandar</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/cambiar">Cambiar contraseña</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/recuperar">Recuperar contraseaña</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/cliente">Cliente</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/administrador">Administrador</Link></li>
-                      <li className="nav-item"><Link className="nav-link" to="/politicas">Politicas</Link></li>
-                                
-                  </ul>
-              </div>
+      <div classNameName="container mt-5">
+        <nav className="navbar navbar-expand-sm navbar-dark bg-primary flex-column align-items-stretch">
+          <div className="d-flex">
+            <a className="navbar-brand mx-sm-auto mr-auto" href="/portada" >
+              {/* <img className="img-fluid" src={logo} alt="Logo" /> */}
+            </a>
+            <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+              <span className="navbar-toggler-icon"></span>
+            </button>
           </div>
-      </nav>
-      
-      
-      <hr />
-      <Switch>
+          <div className="collapse navbar-collapse w-100 sticky-top" id="navbarMenu">
+          <Link className="navbar-brand" to="/portada"><img src={logo} alt="Logo" width="30" height="24" className="d-inline-block align-text-top"/></Link>
+            <ul className="navbar-nav ">
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/portada">Portada</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/portafolios">Portafolios</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/nosotros">Nosotros</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/contacto">Contacto</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/cliente">Cliente</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/administrador">Admin</Link>
+              </li>
+            </ul>
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to="/sesion">Iniciar Sesión</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/registro-usuario">Registrar Cuenta</Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+
+        <hr />
+        <Switch>
       <Route path="/" exact>
           <Portada />
         </Route>
@@ -87,7 +112,7 @@ function App() {
         </Route>
 
         <Route path="/estandar" exact>
-          <Pestandar/>
+          <PestandarV3/>
         </Route>
 
         <Route path="/cambiar" exact>
@@ -111,9 +136,11 @@ function App() {
         </Route>
       
       </Switch>
-    </div>
+      </div>
+
+    </Router>
+
     
-  </Router>
   );
 }
 

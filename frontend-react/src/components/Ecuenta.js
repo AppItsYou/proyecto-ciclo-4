@@ -36,7 +36,7 @@ const Ecuenta = () => {
                     <div className="datos">
                     <br/>
                         <h4>
-                        Política de tratamientod de datos
+                        Política de tratamiento de datos
                         </h4>
                         <br/>
                         <p>Al crear su cuenta, está aceptando nuestra política de 
