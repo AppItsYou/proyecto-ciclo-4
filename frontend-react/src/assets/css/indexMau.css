@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.img-fluid {
+  border-radius: 25px;
+  opacity: 0.4;
+  width: 100px;
+}
+
+/* Style the footer */
+.baseContacto {
+  background-color: lightBlue;
+  padding: 12px;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: 'Roboto', sans-serif;
+}
+
+.baseContacto #l_acerca {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.baseContacto address {
+  padding: 10px;
+  margin: 10px;
+}
+
+.baseContacto p a img {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+  margin-right: 10px;
+  padding-top: 10px;
+}
+
+.baseDerechos {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  line-height: 18px;
+  background: #273b47;
+  padding: 10px 32px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.baseDerechos #l_politica {
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.social-icons li {
+  vertical-align: top;
+  display: inline;
+  font-size: 1.2em;
+  padding: 0.5em;
+}

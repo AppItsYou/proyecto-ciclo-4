@@ -3,7 +3,7 @@ import Portada from './components/Portada';
 import Dsesion from './components/Dsesion';
 import Ecuenta from './components/Ecuenta';
 import Fcontacto from './components/Fcontacto';
-import PestandarV3 from './components/PestandarV3';
+import Pestandar from './components/Pestandar';
 import Xcambiar from './components/Xcambiar';
 import Xrecuperar from './components/Xrecuperar';
 import Ucliente from './components/Ucliente';
@@ -29,7 +29,7 @@ function App() {
   return (
     <Router>
       <div classNameName="container mt-5">
-        <nav className="navbar navbar-expand-sm navbar-dark bg-primary flex-column align-items-stretch">
+        <nav className="navbar navbar-expand-sm navbar-light bg-light flex-column align-items-stretch">
           <div className="d-flex">
             <a className="navbar-brand mx-sm-auto mr-auto" href="/portada" >
               {/* <img className="img-fluid" src={logo} alt="Logo" /> */}
@@ -53,12 +53,6 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to="/contacto">Contacto</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/cliente">Cliente</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/administrador">Admin</Link>
-              </li>
             </ul>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
@@ -74,54 +68,50 @@ function App() {
 
         <hr />
         <Switch>
-      <Route path="/" exact>
-          <Portada />
-        </Route>
-        <Route path="/portada" exact>
-          <Portada />
-        </Route>
-        <Route path="/portafolios" exact>
-          <Portafolios />
-        </Route>
-        <Route path="/nosotros" exact>
-          <Nosotros />
-        </Route>
-        <Route path="/sesion" exact>
-          <Dsesion />
-        </Route>
+          <Route path="/" exact>
+            <Portada />
+          </Route>
+          <Route path="/portada" exact>
+            <Portada />
+          </Route>
+          <Route path="/portafolios" exact>
+            <Portafolios />
+          </Route>
+          <Route path="/nosotros" exact>
+            <Nosotros />
+          </Route>
+          <Route path="/sesion" exact>
+            <Dsesion />
+          </Route>
 
-        <Route path="/registro-usuario" exact>
-          <Ecuenta />
-        </Route>
-        <Route path="/contacto" exact>
-          <Fcontacto/>
-        </Route>
+          <Route path="/registro-usuario" exact>
+            <Ecuenta />
+          </Route>
+          <Route path="/contacto" exact>
+            <Fcontacto />
+          </Route>
 
-        <Route path="/estandar" exact>
-          <PestandarV3/>
-        </Route>
+          <Route path="/estandar" exact>
+            <Pestandar />
+          </Route>
 
-        <Route path="/cambiar" exact>
-          <Xcambiar/>
-        </Route>
+          <Route path="/cambiar" exact>
+            <Xcambiar />
+          </Route>
 
-        <Route path="/recuperar" exact>
-          <Xrecuperar/>
-        </Route>
+          <Route path="/recuperar" exact>
+            <Xrecuperar />
+          </Route>
 
-        <Route path="/cliente" exact>
-          <Ucliente/>
-        </Route>
+          <Route path="/cliente" exact>
+            <Ucliente />
+          </Route>
 
-        <Route path="/administrador" exact>
-          <Uadmin/>
-        </Route>
+          <Route path="/administrador" exact>
+            <Uadmin />
+          </Route>
 
-        <Route path="/politicas" exact>
-          <Politicas/>
-        </Route>
-      
-      </Switch>
+        </Switch>
       </div>
 
     </Router>
