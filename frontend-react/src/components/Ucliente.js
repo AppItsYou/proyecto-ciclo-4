@@ -79,7 +79,8 @@ render(){
                         
                         <br/>
                         <br/>
-                        <button type="button" class="btn btn-dark">Cambiar contraseña</button>
+                        <Link className="btn btn-dark"  to="/cambiar">Cambiar contraseña</Link>
+                        
                         <br/>
                         <br/>
                     </div>

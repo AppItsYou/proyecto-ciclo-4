@@ -76,9 +76,11 @@ import { withRouter } from "react-router-dom";
                                 <div class="btn-group me-2" role="group" aria-label="First group">
                                 <button type="button" class="btn btn-dark">Ver</button>
                                 </div>
-                                <div class="btn-group" role="group" aria-label="Third group">
+                                {/* <div class="btn-group" role="group" aria-label="Third group">
                                 <button class="btn btn-dark">Editar</button>
-                                </div>
+                                </div> */}
+                                <Link className="btn btn-dark" to={"/editar-portafolio/" + this.props.portafolio._id}>
+                                Editar </Link>
                                 <div class="btn-group" role="group" aria-label="Third group">
                                 <button onClick={this.autorizarPortafolio} class="btn btn-dark">Publicar</button>
                                 </div>

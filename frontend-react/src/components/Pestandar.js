@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { useState } from 'react';
 import axios from 'axios';
 import ruta from '../rutaAPI';
 import {withRouter} from "react-router-dom";

@@ -11,6 +11,7 @@ import Uadmin from './components/Uadmin';
 import logo from './assets/img/Haz.png';
 import Politicas from './components/Politicas';
 import Portafolios from './components/Portafolios';
+import Peditestandar from './components/Peditestandar';
 import './assets/css/indexMau.css';
 
 import {
@@ -23,6 +24,7 @@ import {
 
 import { Nosotros } from './components/Nosotros';
 //import { Portafolios } from './components/Portafolios';
+
 
 
 
@@ -122,6 +124,7 @@ function App() {
           <Politicas/>
         </Route>
       
+        <Route path="/editar-portafolio/:id" component={Peditestandar} />
       </Switch>
       </div>
 
