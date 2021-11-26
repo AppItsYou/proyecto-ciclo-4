@@ -97,7 +97,7 @@ const Pestandar = () => {
                 
 <form onSubmit={creacionPortafolio}>
 {/* tratamiento de imagenes */}
-    <Layout>
+    {/* <Layout>
         <Container>
         <h2>Imagen Portafolio</h2>
         
@@ -154,7 +154,7 @@ const Pestandar = () => {
 
         
       </Container>
-      </Layout>
+      </Layout> */}
         {/* fin de tratamiento de imagenes */}
                  
                         <div className="form-group">
