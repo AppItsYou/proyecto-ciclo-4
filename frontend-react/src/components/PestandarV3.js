@@ -1,13 +1,26 @@
-<<<<<<< HEAD
 import React, { useState, useRef } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import '../assets/css/estandar.css';
 import { Layout, Container, BoxUpload, ImagePreview } from "../assets/js/style";
 import FolderIcon from "../assets/img/folder_icon_transparent.png";
 import CloseIcon from "../assets/img/CloseIcon.svg";
+import ruta from '../rutaAPI';
+import { useHistory ,withRouter} from "react-router-dom";
 
 
 const Pestandar = () => {
+    /* history =useHistory(); */
+    const [portafolio, setPortafolio] = useState({
+        name: "name-prueba",
+        lema: "lema-prueba",
+        servicio:"servicio-prueba",
+        habilidad: "habilidad-preba",
+        logro: "logro-prueba",
+        email: "email-prueba@gmail.com",
+        phone: "2432423",
+        estado:"CREADO"
+      })
+
     const [image, setImage] = useState("");
     const [isUploaded, setIsUploaded] = useState(false);
     const [typeFile, setTypeFile] = useState("");
@@ -31,6 +44,44 @@ const Pestandar = () => {
           
         }
       }
+    // actualizacion de campos
+      const handleChange = (event) => {
+        const { name, value } = event.target
+        setPortafolio({ ...portafolio, [name]: value })
+      }
+
+      const creacionPortafolio=(e)=>{
+        e.preventDefault();
+        
+       const formData = new FormData()
+       alert(typeof(formData));
+        formData.append('name', "portafolio.name")
+        formData.append('lema', portafolio.lema)
+        formData.append('servicio', portafolio.servicio)
+        formData.append('habilidad', portafolio.habilidad)
+        formData.append('logro', portafolio.logro)
+        formData.append('email', portafolio.email)
+        formData.append('phone', portafolio.phone)
+        formData.append('estado', portafolio.estado)
+        formData.append('image', imagenSeleccionada) 
+        alert(JSON.stringify(formData))
+        let apiURL = `${ruta.ruta_api}/api/crear-portafolio`;
+        let config = {
+        headers: {
+          authorization:`Bearer ${localStorage.token}` ,
+        }
+      }
+        axios
+          .post(apiURL, formData, config)
+          .then((res) => {
+            this.history.push('/cliente');
+            
+          })
+          .catch((error) => {
+            console.log(error.message);
+            alert("No fue posible registrar portafolio");
+          });
+      }
     return (
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -41,10 +92,14 @@ const Pestandar = () => {
                     
                 </div>
                 <div className="col-lg-4">
-                    {/* tratamiento de imagenes */}
-                    <Layout>
+       </div>
+                    <br/>
+                
+<form onSubmit={creacionPortafolio}>
+{/* tratamiento de imagenes */}
+    <Layout>
         <Container>
-        <h2>Upload your image</h2>
+        <h2>Imagen Portafolio</h2>
         
 
         <BoxUpload>
@@ -57,15 +112,16 @@ const Pestandar = () => {
                     draggable={"false"}
                     alt="placeholder"
                     style={{ width: 100, height: 100 }}
+                    
                   />
-                  <p style={{ color: "#444" }}>Click to upload image</p>
+                  <p style={{ color: "#444" }}>Click para subir imagen</p>
                 </label>
             
                 <input
                  id="upload-input"
                   type="file"
                   ref={inputFileRef}
-                  accept=".jpg,.jpeg,.gif,.png,.mov,.mp4"
+                  accept=".jpg,.jpeg,.gif,.png"
                   onChange={handleImageChange}
                 />
            
@@ -81,44 +137,33 @@ const Pestandar = () => {
                     setImage(null);
                   }}
                 />
-                {typeFile.includes("video") ? (
-                  <video
-                    id="uploaded-image"
-                    src={image}
-                    draggable={false}
-                    controls
-                    autoPlay
-                    alt="uploaded-img"
-                  />
-                ) : (
+                
                   <img
                     id="uploaded-image"
                     src={image}
                     draggable={false}
                     alt="uploaded-img"
                   />
-                )}
+                
               </ImagePreview>
             )}
           </div>
         </BoxUpload>
 
-        {isUploaded ? <h2>Type is {typeFile}</h2> : null}
+        {isUploaded ? <h2>Tipo imagen: {typeFile}</h2> : null}
 
         
       </Container>
       </Layout>
         {/* fin de tratamiento de imagenes */}
-                    </div>
-                    <br/>
-                
-                <form >
+                 
                         <div className="form-group">
                             <label>Nombre</label>
                             <input
                             type="text"
                             className="form-control"
-                            // v-model="portafolio.name"
+                            value={portafolio.name}
+                            onChange={handleChange} 
                             required
                             />
                         </div>
@@ -129,7 +174,8 @@ const Pestandar = () => {
                             <input
                             type="text"
                             className="form-control"
-                            // v-model="portafolio.lema"
+                            value={portafolio.lema}
+                            onChange={handleChange}
                             required
                             />
                         </div>
@@ -145,7 +191,8 @@ const Pestandar = () => {
                             <p className="card-text"><input
                                 type="text"
                                 className="form-control"
-                                // v-model="portafolio.servicio"
+                                value={portafolio.servicio}
+                                onChange={handleChange}
                                 required
                                 /></p>
                             
@@ -158,7 +205,8 @@ const Pestandar = () => {
                             <p className="card-text"><input
                                 type="text"
                                 className="form-control"
-                                // v-model="portafolio.habilidad"
+                                value={portafolio.habilidad}
+                            onChange={handleChange}
                                 required
                                 /></p>
                             
@@ -171,7 +219,8 @@ const Pestandar = () => {
                             <p className="card-text"><input
                                 type="text"
                                 class="form-control"
-                                // v-model="portafolio.logro"
+                                value={portafolio.logro}
+                                onChange={handleChange}
                                 required
                                 /></p>
                             
@@ -187,7 +236,8 @@ const Pestandar = () => {
                         <input
                         type="email"
                         class="form-control"
-                        v-model="portafolio.email"
+                        value={portafolio.email}
+                        onChange={handleChange}
                         required
                         />
                         <br/>
@@ -195,145 +245,24 @@ const Pestandar = () => {
                         <input
                         type="text"
                         class="form-control"
-                        // v-model="portafolio.phone"
+                        value={portafolio.phone}
+                        onChange={handleChange}
                         required
                         />
                     </div>
 
                     <br/>
 
-                    <div class="nav-menu">
-                        <button class="btn btn-primary">Guardar</button>
-                    </div>
+                    <div class="btn-toolbar">
+                            <div class="btn-group me-2">
+                            <button class="btn btn-dark">Guardar</button>
+                           
+                            </div>
+                            </div>
                 </form>
             </div>
         </div>
     );
 }
 
-export default Pestandar;
-||||||| merged common ancestors
-=======
-import React from 'react';
-import { useState } from 'react';
-import Axios from 'axios';
-import '../assets/css/estandar.css';
-
-
-const Pestandar = () => {
-    
-    return (
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-            <br/>
-                <div className="section-title">
-                    <h2>Portafolio</h2>
-                    
-                    
-                </div>
-                <div className="col-lg-4">
-                    <img className="card-img-top" src='../assets/img/testimonials/testimonials-4.jpg' alt="Card image cap"/>
-                    </div>
-                    <br/>
-                
-                <form >
-                        <div className="form-group">
-                            <label>Nombre</label>
-                            <input
-                            type="text"
-                            className="form-control"
-                            // v-model="portafolio.name"
-                            required
-                            />
-                        </div>
-                    <br/>
-
-                        <div className="form-group">
-                            <label>Lema de vida</label>
-                            <input
-                            type="text"
-                            className="form-control"
-                            // v-model="portafolio.lema"
-                            required
-                            />
-                        </div>
-
-                    <br/>
-                    <div className="container" data-aos="zoom-in" data-aos-delay="100">
-                        
-                        
-                        <div className="card-group">
-                        <div className="card">
-                            <div className="card-body">
-                            <h5 className="card-title">Servicios a ofrecer</h5>
-                            <p className="card-text"><input
-                                type="text"
-                                className="form-control"
-                                // v-model="portafolio.servicio"
-                                required
-                                /></p>
-                            
-                            </div>
-                        </div>
-                        <div className="card">
-                            
-                            <div className="card-body">
-                            <h5 className="card-title">Habilidades blandas</h5>
-                            <p className="card-text"><input
-                                type="text"
-                                className="form-control"
-                                // v-model="portafolio.habilidad"
-                                required
-                                /></p>
-                            
-                            </div>
-                        </div>
-                        <div className="card">
-                            
-                            <div className="card-body">
-                            <h5 className="card-title">Logros obtenidos</h5>
-                            <p className="card-text"><input
-                                type="text"
-                                class="form-control"
-                                // v-model="portafolio.logro"
-                                required
-                                /></p>
-                            
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <br/>
-
-                    <div className="container">
-                        <h5>Contacto: </h5>
-                        <label>Correo electronico</label>
-                        <input
-                        type="email"
-                        class="form-control"
-                        v-model="portafolio.email"
-                        required
-                        />
-                        <br/>
-                        <label>Celular</label>
-                        <input
-                        type="text"
-                        class="form-control"
-                        // v-model="portafolio.phone"
-                        required
-                        />
-                    </div>
-
-                    <br/>
-
-                    <div class="nav-menu">
-                        <button class="btn btn-primary">Guardar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    );
-}
-
-export default Pestandar;
->>>>>>> 4629513bc2ba6223e66d023e7a331dd53ab690cc
+export default withRouter(Pestandar);

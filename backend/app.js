@@ -37,7 +37,7 @@ app.use("/api", portafolioAPI);
 app.use("/usuario-servicios", usuarioAPI)
 app.use('/public', express.static(`${__dirname}/storage/imgs`));
 // Create port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 const server = app.listen(port, () => {
   console.log("Connected to port " + port);

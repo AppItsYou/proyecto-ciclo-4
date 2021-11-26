@@ -105,8 +105,6 @@ import {
                             <div class="btn-group me-2">
                             <button class="btn btn-dark">Entrar</button>
                            
-                            <br/>
-
                             </div>
                         
                            

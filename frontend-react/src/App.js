@@ -3,26 +3,15 @@ import Portada from './components/Portada';
 import Dsesion from './components/Dsesion';
 import Ecuenta from './components/Ecuenta';
 import Fcontacto from './components/Fcontacto';
-<<<<<<< HEAD
 import PestandarV3 from  './components/PestandarV3';
-import Pestandar from  './components/Pestandar';
-||||||| merged common ancestors
-import Pestandar from  './components/Pestandar';
-=======
-import PestandarV3 from './components/PestandarV3';
->>>>>>> 4629513bc2ba6223e66d023e7a331dd53ab690cc
 import Xcambiar from './components/Xcambiar';
 import Xrecuperar from './components/Xrecuperar';
 import Ucliente from './components/Ucliente';
 import Uadmin from './components/Uadmin';
 import logo from './assets/img/Haz.png';
 import Politicas from './components/Politicas';
-<<<<<<< HEAD
 import Portafolios from './components/Portafolios';
-||||||| merged common ancestors
-=======
 import './assets/css/indexMau.css';
->>>>>>> 4629513bc2ba6223e66d023e7a331dd53ab690cc
 
 import {
   BrowserRouter as Router,
@@ -110,12 +99,7 @@ function App() {
         <Route path="/contacto" exact>
           <Fcontacto/>
         </Route>
-
-        <Route path="/estandar" exact>
-          <PestandarV3/>
-        </Route>
-
-        <Route path="/cambiar" exact>
+       <Route path="/cambiar" exact>
           <Xcambiar/>
         </Route>
 
