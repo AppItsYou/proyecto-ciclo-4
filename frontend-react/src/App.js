@@ -13,6 +13,8 @@ import Politicas from './components/Politicas';
 import Portafolios from './components/Portafolios';
 import Peditestandar from './components/Peditestandar';
 import './assets/css/indexMau.css';
+import { Nosotros } from './components/Nosotros'
+import Verestandar from './components/Verestandar';
 
 import {
   BrowserRouter as Router,
@@ -22,8 +24,7 @@ import {
   // NavLink
 } from "react-router-dom";
 
-import { Nosotros } from './components/Nosotros';
-//import { Portafolios } from './components/Portafolios';
+
 
 
 
@@ -125,6 +126,8 @@ function App() {
         </Route>
       
         <Route path="/editar-portafolio/:id" component={Peditestandar} />
+
+        <Route path="/ver-portafolio/:id" component={Verestandar} />
       </Switch>
       </div>
 

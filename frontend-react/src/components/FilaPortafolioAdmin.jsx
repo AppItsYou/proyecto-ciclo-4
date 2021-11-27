@@ -5,7 +5,7 @@ import ruta from '../rutaAPI';
 import { withRouter } from "react-router-dom";
 
 
- class FilaPortafolioCliente extends Component {
+ class FilaPortafolioAdmin extends Component {
 
     constructor(props) {
         super(props);
@@ -28,9 +28,7 @@ import { withRouter } from "react-router-dom";
             
             //alert(this.state.portafolios);
             alert("renderizar tabla");
-            /* const filtredData = this.state.portafolios.filter(item => item._id !== this.props.portafolio._id);
-              obj.setState({portafolios:filtredData}); */
-              return this.props.renderizarTabla(this.props.portafolio._id);
+            return this.props.renderizarTabla(this.props.portafolio._id);
           })
           .catch((error) => {
             console.log(error);
@@ -43,7 +41,7 @@ import { withRouter } from "react-router-dom";
     autorizarPortafolio() {
         let apiURL = `${ruta.ruta_api}/api/update-portafolio/${this.props.portafolio._id}`;
         if (window.confirm("Realmente desea solicitar aurorización?")) {
-        let filtro={estado:"PENDIENTE"}
+        let filtro={estado:"AUTORIZADO"}
 
         
         axios
@@ -52,7 +50,7 @@ import { withRouter } from "react-router-dom";
             console.log(res);
             this.setState(prevState => {
                 let data = Object.assign({}, prevState.data);
-                data.estado = 'PENDIENTE';
+                data.estado = 'AUTORIZADO';
                 return { data };
               }); 
           })
@@ -64,7 +62,7 @@ import { withRouter } from "react-router-dom";
     /************************* */
 
     render() {
-     
+        
         return(
             <tr>
                 <td>{this.state.data.name}</td>
@@ -77,11 +75,12 @@ import { withRouter } from "react-router-dom";
                                 <Link className="btn btn-dark" to={"/ver-portafolio/" + this.props.portafolio._id}>
                                 Ver </Link>
                                 </div>
-                                
-                                <Link className="btn btn-dark" to={"/editar-portafolio/" + this.props.portafolio._id}>
-                                Editar </Link>
                                 <div class="btn-group" role="group" aria-label="Third group">
-                                <button onClick={this.autorizarPortafolio} class="btn btn-dark">Publicar</button>
+                                {/*  <button onClick={this.autorizarPortafolio} class="btn btn-dark">Publicar</button> */} 
+                                 {
+                                  (this.state.data.estado==="PENDIENTE") &&   
+                                  <button onClick={this.autorizarPortafolio} class="btn btn-dark">Publicar</button>  
+                                 }
                                 </div>
                                 <div class="btn-group me-2" role="group" aria-label="Second group">
                                 <button  onClick={this.deletePortafolio} class="btn btn-dark">Borrar</button>
@@ -92,4 +91,4 @@ import { withRouter } from "react-router-dom";
         );
     }
 }
-export default withRouter(FilaPortafolioCliente)
+export default withRouter(FilaPortafolioAdmin)

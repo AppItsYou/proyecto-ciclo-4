@@ -1,17 +1,62 @@
-import React from 'react';
+import React,{Fragment, Component} from 'react';
 import '../assets/css/cliente.css';
+import axios from 'axios';
+import ruta from '../rutaAPI';
+
+import FilaPortafolioAdmin from './FilaPortafolioAdmin';
+import Pestandar from './PestandarV3';
 
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-   // NavLink
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+ // NavLink
 } from "react-router-dom";
 
-const Adminis =require('../assets/img/userAdmi.png')
 
-const Uadmin = () => {
+export default  class Uadmin extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          portafolios: []
+        };
+      }
+    actualizarDatosPortafolio(identificador){
+      const filtredData = this.state.portafolios.filter(item => item._id !== identificador);
+      this.setState({portafolios:filtredData});
+      this.render();
+
+    }
+      componentDidMount() {
+        let config = {
+            headers: {
+              authorization:`Bearer ${localStorage.token}` ,
+            }
+            }
+            let apiURL = `${ruta.ruta_api}/api`;
+            axios
+      .get(apiURL,config)
+      .then((res) => {
+        this.setState({
+            portafolios: res.data
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      }
+
+      /******informacion del portafolio */
+      informacionPortafolios() {
+        
+        const salida =this.state.portafolios.map((portafolio, i) => {
+            return <FilaPortafolioAdmin portafolio={portafolio} key={i} 
+          renderizarTabla={(id)=>{this.actualizarDatosPortafolio(id)}} />;
+        });
+       return salida;
+    }
+    render(){
     return (
         <div class="d-flex justify-content-center">
             <p class="text-center">
@@ -26,7 +71,7 @@ const Uadmin = () => {
                         <br/>
                         <p classNameName="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <br/>
-                        <button type="button" class="btn btn-dark">Cambiar contraseña</button>
+                        <Link className="btn btn-dark"  to="/cambiar">Cambiar contraseña</Link>
                         <br/>
                         <br/>
                     </div>
@@ -47,25 +92,7 @@ const Uadmin = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr >
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="align-top">
-                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                                <div class="btn-group me-2" role="group" aria-label="First group">
-                                <button type="button" class="btn btn-dark">Ver</button>
-                                </div>
-                                <div class="btn-group me-2" role="group" aria-label="Second group">
-                                <button type="button" class="btn btn-dark">Borrar</button>
-                                </div>
-                                <div class="btn-group" role="group" aria-label="Third group">
-                                <button type="button" class="btn btn-dark">Autorizar</button>
-                                </div>
-                            </div>
-                    </td>
-                    </tr>
+                    {this.informacionPortafolios()}
                 </tbody>
                 </table>
             </p>
@@ -73,6 +100,6 @@ const Uadmin = () => {
         </div>
         
     );
+    }
 }
 
-export default Uadmin;
