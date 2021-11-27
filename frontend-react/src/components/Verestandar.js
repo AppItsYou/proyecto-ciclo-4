@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
       this.onChangeLogro = this.onChangeLogro.bind(this);
       this.onChangeEmail = this.onChangeEmail.bind(this);
       this.onChangePhone = this.onChangePhone.bind(this);
-      this.onSubmit = this.onSubmit.bind(this);
+      
   
       // Setting up state
       this.state = {
@@ -82,35 +82,7 @@ import { Link } from "react-router-dom";
       this.setState({ phone: e.target.value })
     }
   
-    onSubmit(e) {
-      e.preventDefault()
-  
-      const editarPortafolio = {
-        name: this.state.name,
-        lema: this.state.lema,
-        servicio: this.state.servicio,
-        habilidad: this.state.habilidad,
-        logro: this.state.logro,
-        email: this.state.email,
-        phone: this.state.phone,
         
-       
-        
-      };
-     
-    let apiURL= `${ruta.ruta_api}/api/update-portafolio/`
-    + this.props.match.params.id;
-    axios.put(apiURL, editarPortafolio)
-        .then(res => {
-            alert('Portafolio actualizado con exito !');
-            console.log(res.data)
-            this.props.history.push('/cliente');})
-        .catch((error) => {
-             alert("error en actualizacion portafolio");
-              console.log(error)
-            })
-            
-          }      
     render() {
         return (
         
