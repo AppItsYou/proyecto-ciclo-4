@@ -1,6 +1,8 @@
 import React,{Fragment, Component} from 'react';
 import axios from 'axios';
 import ruta from '../rutaAPI';
+import '../assets/css/Porta.css';
+import Footer2 from '../components/footer/Footer2.js';
 
 export default class Portafolios extends Component {
     constructor(props) {
@@ -31,7 +33,7 @@ export default class Portafolios extends Component {
             if (!portafolio.imgUrl){
                  pathImg="assets/img/testimonials/testimonials-1.jpg";
             }
-            return <div>
+            return <div >
             <div className="testimonial-item">
             <p>
             <i className="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -52,7 +54,8 @@ export default class Portafolios extends Component {
 
       render() {
     return (
-    <Fragment>
+      <div className="App" >
+    <Fragment className="App-porta" >
         
         <div className="testimonials container" style={{width: "500px"}}>
             <br/>
@@ -69,7 +72,8 @@ export default class Portafolios extends Component {
         </div>
 
         </div>
-</Fragment>
+        <Footer2 />
+</Fragment></div>
     );
 }
 
