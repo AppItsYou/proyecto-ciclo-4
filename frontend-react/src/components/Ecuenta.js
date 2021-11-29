@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-// import { useState } from 'react';
-// import Form from 'react-bootstrap/Form'
-// import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import ruta from '../rutaAPI';
 import '../assets/css/estandar.css';
-
-// const User =require('../assets/img/user.png')
 
 export default class Ecuenta extends Component {
 
@@ -51,8 +47,8 @@ export default class Ecuenta extends Component {
         tipo_usuario: 'regular'
         
       };
-  
-      axios.post('https://perfiles-mintic.herokuapp.com/usuario-servicios/crear-usuario', crearCuenta)
+      let apiURL = `${ruta.ruta_api}/usuario-servicios/crear-usuario`;
+      axios.post(apiURL, crearCuenta)
         .then(res => {
             alert('Usuario registrado');
             console.log(res.data)});
