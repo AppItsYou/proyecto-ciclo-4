@@ -57,12 +57,12 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to="/contacto">Contacto</Link>
               </li>
-              <li className="nav-item">
+             {/*  <li className="nav-item">
                 <Link className="nav-link" to="/cliente">Cliente</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/administrador">Admin</Link>
-              </li>
+              </li> */}
             </ul>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">

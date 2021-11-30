@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ruta from '../rutaAPI';
 import '../assets/css/estandar.css';
+import swal from "sweetalert";
 
 export default class Fcontacto extends Component {
 
@@ -61,7 +62,12 @@ export default class Fcontacto extends Component {
         .then((res) => {
          
          let resultado= res.data.mensaje;
-         alert(resultado);
+         swal({
+           title:"Correo Contacto",
+           text:resultado,
+           icon:"success",
+           button:"Aceptar"
+          });
          this.setState({
           name:"",  
           email: "",
