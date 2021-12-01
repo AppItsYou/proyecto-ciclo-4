@@ -72,7 +72,7 @@ import { withRouter } from "react-router-dom";
                         <td class="align-top">
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group me-2" role="group" aria-label="First group">
-                                <Link className="btn btn-dark" target="_blank" to={"/ver-portafolio/" + this.props.portafolio._id}>
+                                <Link className="btn btn-dark" target="_blank" to={"/ver-portafolio2/" + this.props.portafolio._id}>
                                 Ver </Link>
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Third group">
