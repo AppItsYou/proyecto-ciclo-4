@@ -65,11 +65,11 @@ export default  class Uadmin extends Component {
             <img classNameName="card-img-top" src='../assets/img/testimonials/testimonials-1.jpg' alt="Card image cap"/>
                     <div classNameName="card-body">
                         <br/>
-                        <h5 classNameName="card-title">Matt Brandon</h5>
+                        
                         <br/>
                         <h5 classNameName="card-title">Administrador</h5>
                         <br/>
-                        <p classNameName="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        
                         <br/>
                         <Link className="btn btn-dark"  to="/cambiar">Cambiar contraseña</Link>
                         <br/>

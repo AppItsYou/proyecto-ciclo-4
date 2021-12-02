@@ -66,12 +66,9 @@ render(){
                 <img classNameName="card-img-top" src='../assets/img/user.png' alt="Card image cap"/>
                     <div classNameName="card-body">
                         <br/>
-                        <h5 classNameName="card-title">Matt Brandon</h5>
+                        <h5 classNameName="card-title">Usuario Registrado</h5>
                         <br/>
-                        <h5 classNameName="card-title">Freelancer</h5>
-                        <br/>
-                        <p classNameName="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <br/>
+                        
                         <h5>Seleccione la plantilla del portafolio</h5>
                         <br/>
                         

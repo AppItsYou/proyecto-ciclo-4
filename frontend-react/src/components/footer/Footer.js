@@ -1,5 +1,11 @@
 import React from 'react';
 import Politicas from '../Politicas'
+import {
+
+  Route,
+  Link,
+ // NavLink
+} from "react-router-dom";
 
 class Footer extends React.Component {
 
@@ -18,7 +24,7 @@ class Footer extends React.Component {
         </p>
         
             <p className="float-right"><a href="#" rel="noopener noreferrer">Subir</a></p>
-            <p>&copy; {(new Date().getFullYear())} Todos los derechos reservados, it's You. &middot; <a href="/crear" rel="noopener noreferrer">Política de Privacidad</a> &middot; <a href="#" rel="noopener noreferrer">Términos</a></p>
+            <p>&copy; {(new Date().getFullYear())} Todos los derechos reservados, it's You. &middot; <Link  to="/politicas">Política de tratamiento de datos</Link></p>
         </footer>
 
     )

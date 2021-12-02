@@ -3,6 +3,12 @@ import axios from 'axios';
 import ruta from '../rutaAPI';
 import '../assets/css/estandar.css';
 import swal from 'sweetalert';
+import {
+
+  Route,
+  Link,
+ // NavLink
+} from "react-router-dom";
 
 export default class Ecuenta extends Component {
 
@@ -118,7 +124,8 @@ export default class Ecuenta extends Component {
                                      </p>
                                      <p>tratamiendo de datos
                                      </p>
-                                     <a href="http://">Ver Política de tratamiento de datos</a>
+                                     <Link  to="/politicas">Ver Política de tratamiento de datos</Link>
+                                     
                                  </div>
                              </div>
                          </div>

@@ -95,7 +95,7 @@ import { Link } from "react-router-dom";
                     
                 </div>
                 <div className="col-lg-4">
-                    <img className="card-img-top" src='../assets/img/testimonials/testimonials-4.jpg' alt="Card image cap"/>
+                    <img className="card-img-top" src='../assets/img/user.png' alt="Card image cap"/>
                     </div>
                     <br/>
                 
