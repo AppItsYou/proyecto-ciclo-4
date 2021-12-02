@@ -25,9 +25,6 @@ import { withRouter } from "react-router-dom";
         axios
           .delete(apiURL)
           .then(() => {
-            
-            //alert(this.state.portafolios);
-            alert("renderizar tabla");
             return this.props.renderizarTabla(this.props.portafolio._id);
           })
           .catch((error) => {
@@ -43,7 +40,6 @@ import { withRouter } from "react-router-dom";
         if (window.confirm("Realmente desea solicitar aurorización?")) {
         let filtro={estado:"AUTORIZADO"}
 
-        
         axios
           .put(apiURL, filtro)
           .then((res) => {

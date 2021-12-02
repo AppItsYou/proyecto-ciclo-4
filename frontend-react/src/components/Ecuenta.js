@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ruta from '../rutaAPI';
 import '../assets/css/estandar.css';
+import swal from 'sweetalert';
 
 export default class Ecuenta extends Component {
 
@@ -50,8 +51,21 @@ export default class Ecuenta extends Component {
       let apiURL = `${ruta.ruta_api}/usuario-servicios/crear-usuario`;
       axios.post(apiURL, crearCuenta)
         .then(res => {
-            alert('Usuario registrado');
-            console.log(res.data)});
+          swal({
+            title:"Registro Usuario",
+            text:"El usuario se ha registrado con éxito !",
+            icon:"success",
+            button:"Aceptar"
+           });
+         console.log(res.data)})
+        .catch((error) => {
+          swal({
+            title:"Registro Usuario",
+            text:"El usuario no se registro !",
+            icon:"error",
+            button:"Aceptar"
+           });
+            });
   
       this.setState({
         nombre: '',

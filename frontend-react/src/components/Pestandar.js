@@ -3,6 +3,7 @@ import axios from 'axios';
 import ruta from '../rutaAPI';
 import {withRouter} from "react-router-dom";
 import '../assets/css/estandar.css';
+import swal from 'sweetalert';
 
  class Pestandar extends Component {
 
@@ -29,8 +30,7 @@ import '../assets/css/estandar.css';
         email: '',
         phone: '',
         estado: 'CREADO',
-        /* usuario_id: '',
-        _id: '' */
+       
       }
     }
   
@@ -74,8 +74,7 @@ import '../assets/css/estandar.css';
         email: this.state.email,
         phone: this.state.phone,
         estado: 'CREADO',
-        /* usuario_id: '',
-        _id: '' */
+       
         
       };
       let apiURL = `${ruta.ruta_api}/api/crear-portafolio`;
@@ -86,9 +85,24 @@ import '../assets/css/estandar.css';
     }
       axios.post(apiURL,crearCuenta, config)
         .then(res => {
-            alert('Portafolio creado con exito !');
+          swal({
+            title:"Creación Portafolio",
+            text:"Portafolio creado con éxito!",
+            icon:"success",
+            button:"Aceptar"
+           });
             console.log(res.data)
-            this.props.history.push('/cliente');});
+            this.props.history.push('/cliente');}
+            )
+           .catch((error) =>{
+            swal({
+              title:"Creación Portafolio",
+              text:"Portafolio no creado!",
+              icon:"error",
+              button:"Aceptar"
+             });
+               
+           } );
             
   
       this.setState({
@@ -99,9 +113,8 @@ import '../assets/css/estandar.css';
         logro: '',
         email: '',
         phone: '',
-        estado: 'CREADO',
-        usuario_id: '',
-        _id: ''
+        estado: 'CREADO'
+        
       });
     }
 

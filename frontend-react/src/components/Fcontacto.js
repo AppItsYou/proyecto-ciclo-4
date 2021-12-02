@@ -78,7 +78,12 @@ export default class Fcontacto extends Component {
        })
         .catch((error) => {
           console.log(error);
-          alert("no se puedo entregar el mensaje al administrador");
+          swal({
+            title:"Correo Contacto",
+            text:"No se pudo entregar mensaje al administrador",
+            icon:"error",
+            button:"Aceptar"
+           });
         });
   
       

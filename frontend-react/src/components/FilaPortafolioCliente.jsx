@@ -25,12 +25,7 @@ import { withRouter } from "react-router-dom";
         axios
           .delete(apiURL)
           .then(() => {
-            
-            //alert(this.state.portafolios);
-            alert("renderizar tabla");
-            /* const filtredData = this.state.portafolios.filter(item => item._id !== this.props.portafolio._id);
-              obj.setState({portafolios:filtredData}); */
-              return this.props.renderizarTabla(this.props.portafolio._id);
+            return this.props.renderizarTabla(this.props.portafolio._id);
           })
           .catch((error) => {
             console.log(error);

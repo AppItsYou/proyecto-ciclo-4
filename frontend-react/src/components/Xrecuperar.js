@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import ruta from '../rutaAPI';
 import '../assets/css/style.css';
+import swal from "sweetalert";
 import {
 
     Route,
@@ -40,11 +41,23 @@ import {
         .then((res) => {
          
          this.salida= res.data.mensaje;
-         alert(this.salida);
+         
+         swal({
+          title:"Recuperación de password",
+          text:this.salida,
+          icon:"success",
+          button:"Aceptar"
+         });
          this.esGuardado = true;
        })
         .catch((error) => {
           console.log(error);
+          swal({
+            title:"Recuperación password",
+            text:"Imposile recuperar password !",
+            icon:"error",
+            button:"Aceptar"
+           });
         });
       }
     render(){

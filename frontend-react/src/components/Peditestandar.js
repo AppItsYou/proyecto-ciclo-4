@@ -4,6 +4,7 @@ import axios from 'axios';
 import ruta from '../rutaAPI';
 import {withRouter} from "react-router-dom";
 import '../assets/css/estandar.css';
+import swal from 'sweetalert';
 
  class Peditestandar extends Component {
 
@@ -102,10 +103,21 @@ import '../assets/css/estandar.css';
     axios.put(apiURL, editarPortafolio)
         .then(res => {
             alert('Portafolio actualizado con exito !');
+            swal({
+              title:"Actualización Portafolio",
+              text:"El portafolio ha sido actualizado!",
+              icon:"success",
+              button:"Aceptar"
+             });
             console.log(res.data)
             this.props.history.push('/cliente');})
         .catch((error) => {
-             alert("error en actualizacion portafolio");
+          swal({
+            title:"Actualización Portafolio",
+            text:"El portafolio no fue actualizado!",
+            icon:"error",
+            button:"Aceptar"
+           });
               console.log(error)
             })
             

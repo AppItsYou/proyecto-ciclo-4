@@ -3,6 +3,7 @@ import axios from 'axios';
 import ruta from '../rutaAPI';
 import '../assets/css/style.css';
 import { withRouter } from "react-router-dom";
+import swal from "sweetalert";
 import {
 
     Route,
@@ -54,17 +55,25 @@ import {
          this.resultado= res.data.data;
          
           if(this.resultado===null){
-           this.salida="Credenciales erroneas o usuario no registrado en el sistema";
-         }
+           //this.salida="Credenciales erroneas o usuario no registrado en el sistema";
+           swal({
+            title:"Sesion Usuario",
+            text:"Credenciales erroneas o usuario no registrado en el sistema",
+            icon:"error",
+            button:"Aceptar"
+           });
+          }
+          
          else{
+          
            localStorage.setItem("token", res.data.token);
             if (this.resultado.tipo_usuario==="regular"){
               this.props.history.push('/cliente');
               
-             alert(`regular ${this.resultado.nombre}`)
+             //alert(`regular ${this.resultado.nombre}`)
             }else if (this.resultado.tipo_usuario==="admin")
              {
-              alert(`administrador ${this.resultado.nombre}`)
+              //alert(`administrador ${this.resultado.nombre}`)
               this.props.history.push('/administrador');
              }
             

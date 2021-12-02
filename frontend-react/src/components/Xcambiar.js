@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../assets/css/style.css';
 import ruta from '../rutaAPI';
 import {withRouter} from "react-router-dom";
+import swal from 'sweetalert';
 
 
 
@@ -42,16 +43,32 @@ if (this.state.password === this.state.passwordEscritoNuevamente) {
  axios
    .post(apiURL, this.state, config) 
    .then((res) => {
-    alert("Password actualizado");
+    swal({
+      title:"Actualización de password",
+      text:"Password actualizado !",
+      icon:"success",
+      button:"Aceptar"
+     });
     
   })
    .catch((error) => {
      console.log(error);
+     swal({
+      title:"Actualización de password",
+      text:"No se pudo actualizar password !",
+      icon:"error",
+      button:"Aceptar"
+     });
    });
 }
 else {
    
-   alert("Los campos de pasword no coincide");
+  swal({
+    title:"Actualización de password",
+    text:"Los passwords no coinciden !",
+    icon:"error",
+    button:"Aceptar"
+   });
  }
 
   }

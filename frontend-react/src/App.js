@@ -58,12 +58,7 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to="/contacto">Contacto</Link>
               </li>
-             {/*  <li className="nav-item">
-                <Link className="nav-link" to="/cliente">Cliente</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/administrador">Admin</Link>
-              </li> */}
+             
             </ul>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
@@ -94,9 +89,7 @@ function App() {
         <Route path="/sesion" exact>
           <Dsesion />
         </Route>
-        {/* <Route path="/crear-portafolio" exact>
-          <PestandarV3 />
-        </Route> */}
+        
         <Route path="/crear-portafolio" exact>
           <Pestandar />
         </Route>
