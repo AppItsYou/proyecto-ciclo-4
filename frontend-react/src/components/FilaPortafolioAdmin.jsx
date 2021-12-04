@@ -61,7 +61,7 @@ import { withRouter } from "react-router-dom";
         
         return(
             <tr>
-                <td>{this.state.data._id} - {this.state.data.name}</td>
+                <td>{this.state.data.name}</td>
                 <td>{this.state.data.email}</td>
                 <td>{this.state.data.phone}</td>
                 <td>{this.state.data.estado}</td>
