@@ -77,7 +77,7 @@ render(){
                         
                         <br/>
                         <br/>
-                        <Link className="btn btn-dark"  to="/cambiar">Cambiar contraseña</Link>
+                        <Link target="_blank" className="btn btn-dark"  to="/cambiar">Cambiar contraseña</Link>
                         
                         <br/>
                         <br/>

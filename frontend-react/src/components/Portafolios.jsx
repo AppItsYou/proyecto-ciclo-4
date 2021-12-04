@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default class Portafolios extends Component {
   
 
-deletePortafolio() {
+/* deletePortafolio() {
 let apiURL = `${ruta.ruta_api}/api/delete-portafolio/${this.props.portafolio._id}`;
 
 if (window.confirm("Realmente desea borrar?")) {
@@ -22,10 +22,10 @@ if (window.confirm("Realmente desea borrar?")) {
       });
   }
   
-}
+} */
 
 /********************* */
-autorizarPortafolio() {
+/* autorizarPortafolio() {
     let apiURL = `${ruta.ruta_api}/api/update-portafolio/${this.props.portafolio._id}`;
     if (window.confirm("Realmente desea solicitar aurorización?")) {
     let filtro={estado:"AUTORIZADO"}
@@ -44,7 +44,7 @@ autorizarPortafolio() {
         console.log(error);
       });
   }
-  }
+  } */
 
 
     constructor(props) {
@@ -73,7 +73,8 @@ autorizarPortafolio() {
       /******informacion del portafolio */
       informacionPortafolios() {
         const salida =this.state.portafolios.map((portafolio, i) => {
-            let pathImg =`${ruta.ruta_api}/public/${portafolio.imgUrl}`;
+            //let pathImg =`${ruta.ruta_api}/public/${portafolio.imgUrl}`;
+            let pathImg="";
             if (!portafolio.imgUrl){
                  pathImg="assets/img/user.png";
             }
@@ -84,12 +85,14 @@ autorizarPortafolio() {
             {portafolio.lema} Celular {portafolio.phone}
             <i className="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src={pathImg} className="testimonial-img" alt="" />
+            <Link target="_blank" to={"/ver-portafolio/" + portafolio._id} >
+            <img src={pathImg} className="testimonial-img"  alt="" />
+             </Link>
+            
             <h3>{portafolio.name}</h3>
             <h4>{portafolio.email}</h4>
-             <h4>{portafolio.imgUrl}</h4>
-             {/* <Link to={"/ver-portafolio2/" + this.props.portafolio._id}>
-                                Ver </Link> */}
+            {/*  <h4>{portafolio.imgUrl}</h4> */}
+            
         </div>
         <br/>
         </div>
