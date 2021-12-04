@@ -10,8 +10,7 @@ import { withRouter } from "react-router-dom";
     constructor(props) {
         super(props);
         this.state = {
-            data:props.portafolio,
-            portafolios:props.portafolios,
+            data:props.portafolio
             
           };
         this.deletePortafolio = this.deletePortafolio.bind(this); 
@@ -21,18 +20,19 @@ import { withRouter } from "react-router-dom";
    deletePortafolio() {
     let apiURL = `${ruta.ruta_api}/api/delete-portafolio/${this.props.portafolio._id}`;
     
-    if (window.confirm("Realmente desea borrar?")) {
+    if (window.confirm(`Realmente desea borrar?`)) {
         axios
           .delete(apiURL)
           .then(() => {
-            return this.props.renderizarTabla(this.props.portafolio._id);
+            //return this.props.renderizarTabla(this.props.portafolio._id);
           })
           .catch((error) => {
             console.log(error);
           });
       }
-      
+      return this.props.renderizarTabla(this.props.portafolio._id);
     }
+    
     
     /********************* */
     autorizarPortafolio() {
@@ -61,14 +61,14 @@ import { withRouter } from "react-router-dom";
         
         return(
             <tr>
-                <td>{this.state.data.name}</td>
+                <td>{this.state.data._id} - {this.state.data.name}</td>
                 <td>{this.state.data.email}</td>
                 <td>{this.state.data.phone}</td>
                 <td>{this.state.data.estado}</td>
                         <td class="align-top">
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group me-2" role="group" aria-label="First group">
-                                <Link className="btn btn-dark" target="_blank" to={"/ver-portafolio2/" + this.props.portafolio._id}>
+                                <Link className="btn btn-dark" target="_blank" to={"/ver-portafolio/" + this.props.portafolio._id}>
                                 Ver </Link>
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Third group">

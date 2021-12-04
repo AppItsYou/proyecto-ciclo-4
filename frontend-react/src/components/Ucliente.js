@@ -25,7 +25,8 @@ export default  class Ucliente extends Component {
     actualizarDatosPortafolio(identificador){
       const filtredData = this.state.portafolios.filter(item => item._id !== identificador);
       this.setState({portafolios:filtredData});
-      this.render();
+      window.location.reload(true);
+      //this.render();
 
     }
       componentDidMount() {

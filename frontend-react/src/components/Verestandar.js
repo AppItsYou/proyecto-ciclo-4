@@ -196,11 +196,11 @@ import { Link } from "react-router-dom";
 
                     <br/>
                     
-                    <div class="btn-toolbar">
+                    {/* <div class="btn-toolbar">
                             <div class="btn-group me-2">
                             <button class="btn btn-dark"><Link className="nav-link" to="/cliente">Regresar</Link></button>
                             </div>
-                            </div>
+                            </div> */}
 
                     
                 </form>

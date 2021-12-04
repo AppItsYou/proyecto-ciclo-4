@@ -2,6 +2,7 @@ import React,{Fragment, Component} from 'react';
 import '../assets/css/cliente.css';
 import axios from 'axios';
 import ruta from '../rutaAPI';
+import { withRouter } from "react-router-dom";
 
 import FilaPortafolioAdmin from './FilaPortafolioAdmin';
 import Pestandar from './PestandarV3';
@@ -25,7 +26,9 @@ export default  class Uadmin extends Component {
     actualizarDatosPortafolio(identificador){
       const filtredData = this.state.portafolios.filter(item => item._id !== identificador);
       this.setState({portafolios:filtredData});
-      this.render();
+      /* alert(`identificador:${identificador}\n ${JSON.stringify(filtredData)}`); */
+      //this.render();
+      window.location.reload(true);
 
     }
       componentDidMount() {
@@ -40,6 +43,7 @@ export default  class Uadmin extends Component {
       .then((res) => {
         this.setState({
             portafolios: res.data
+            
           });
       })
       .catch((error) => {
@@ -49,12 +53,15 @@ export default  class Uadmin extends Component {
 
       /******informacion del portafolio */
       informacionPortafolios() {
-        
-        const salida =this.state.portafolios.map((portafolio, i) => {
-            return <FilaPortafolioAdmin portafolio={portafolio} key={i} 
+       /*  alert(`Estos son los portafolios:${JSON.stringify(this.state.portafolios)}`); */
+        const salida =this.state.portafolios.map((portafolio,i) => {
+        /*  alert(`${i} -- ${JSON.stringify(portafolio)}`); */
+          return <FilaPortafolioAdmin portafolio={portafolio} 
           renderizarTabla={(id)=>{this.actualizarDatosPortafolio(id)}} />;
         });
-       return salida;
+       
+        return salida; 
+       
     }
     render(){
     return (
@@ -92,7 +99,10 @@ export default  class Uadmin extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.informacionPortafolios()}
+                   {this.informacionPortafolios()} 
+               
+
+               
                 </tbody>
                 </table>
             </p>

@@ -102,7 +102,7 @@ import swal from 'sweetalert';
     + this.props.match.params.id;
     axios.put(apiURL, editarPortafolio)
         .then(res => {
-            alert('Portafolio actualizado con exito !');
+            //alert('Portafolio actualizado con exito !');
             swal({
               title:"Actualización Portafolio",
               text:"El portafolio ha sido actualizado!",

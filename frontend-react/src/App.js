@@ -15,7 +15,7 @@ import Peditestandar from './components/Peditestandar';
 import './assets/css/indexMau.css';
 import { Nosotros } from './components/Nosotros'
 import Verestandar from './components/Verestandar';
-import Verestandar2 from './components/Verestandar2';
+
 
 import {
   BrowserRouter as Router,
@@ -123,7 +123,7 @@ function App() {
 
         <Route path="/ver-portafolio/:id" component={Verestandar} />
 
-        <Route path="/ver-portafolio2/:id" component={Verestandar2} />
+        
       </Switch>
       </div>
 
